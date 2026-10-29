@@ -30,7 +30,7 @@ export default function Login() {
       await login(email.trim(), password);
       navigate(from, { replace: true });
     } catch (err) {
-      const msg = err.response?.data?.message || 'Failed to login. Please verify your credentials.';
+      const msg = err.response?.data?.error || err.response?.data?.message || 'Failed to login. Please verify your credentials.';
       setError(msg);
     } finally {
       setIsSubmitting(false);
